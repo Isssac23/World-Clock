@@ -1,0 +1,18 @@
+import requests
+
+# The API endpoint
+url = "http://worldtimeapi.org/api/timezone"
+key = 'datetime'
+
+# A get request to the API
+Region = input ("Which region would you like?")
+City = input ("Which city would you like?")
+response =requests.get(f"http://worldtimeapi.org/api/timezone/{Region}/{City}")
+
+# Print the response
+response_json = response.json()
+if response.status_code == 200:
+    print(f"The time is {response_json[key]}")
+else:
+    print(f"Error, Location not found")
+    
